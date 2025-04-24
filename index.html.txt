@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASCII Pong - Ultimate Edition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="menu">
+    <h1>ASCII Pong</h1>
+    <div class="controls">
+      <button onclick="startGame('friend')">Amigo</button>
+      <button onclick="startGame('bot')">IA</button>
+      <label>Pontuação Máx.:</label>
+      <select id="maxScore" onchange="updateMaxScore()">
+        <option>7</option><option selected>10</option><option>15</option>
+      </select>
+    </div>
+    <div id="difficulty">
+      <label>Dificuldade IA:</label>
+      <select id="difficultySelect">
+        <option value="easy">Fácil</option>
+        <option value="medium" selected>Média</option>
+        <option value="hard">Difícil</option>
+      </select>
+    </div>
+  </div>
+  <canvas id="gameCanvas"></canvas>
+  <div id="touchControls">
+    <div id="leftPad" ontouchmove="onTouchMove(event, 'left')" ontouchstart="onTouchMove(event,'left')"></div>
+    <div id="rightPad" ontouchmove="onTouchMove(event, 'right')" ontouchstart="onTouchMove(event,'right')"></div>
+  </div>
+  <script src="highscore.js"></script>
+  <script src="pong.js"></script>
+</body>
+</html>
