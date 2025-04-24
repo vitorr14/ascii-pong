@@ -3,35 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ASCII Pong - Ultimate Edition</title>
-  <link rel="stylesheet" href="style.css">
+  <title>ASCII Pong</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    button, select {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #000;
+    }
+    #gameCanvas {
+      display: none;
+      border: 2px solid #fff;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
   <div id="menu">
     <h1>ASCII Pong</h1>
-    <div class="controls">
-      <button onclick="startGame('friend')">Amigo</button>
-      <button onclick="startGame('bot')">IA</button>
-      <label>Pontuação Máx.:</label>
-      <select id="maxScore" onchange="updateMaxScore()">
-        <option>7</option><option selected>10</option><option>15</option>
-      </select>
-    </div>
-    <div id="difficulty">
-      <label>Dificuldade IA:</label>
-      <select id="difficultySelect">
-        <option value="easy">Fácil</option>
-        <option value="medium" selected>Média</option>
-        <option value="hard">Difícil</option>
-      </select>
-    </div>
+    <button id="btnFriend">Jogar com Amigo</button>
+    <button id="btnBot">Jogar contra IA</button>
+    <label for="maxScore">Pontuação Máxima:</label>
+    <select id="maxScore">
+      <option value="7">7</option>
+      <option value="10" selected>10</option>
+      <option value="15">15</option>
+    </select>
   </div>
-  <canvas id="gameCanvas"></canvas>
-  <div id="touchControls">
-    <div id="leftPad" ontouchmove="onTouchMove(event, 'left')" ontouchstart="onTouchMove(event,'left')"></div>
-    <div id="rightPad" ontouchmove="onTouchMove(event, 'right')" ontouchstart="onTouchMove(event,'right')"></div>
-  </div>
-  <script src="highscore.js"></script>
+
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
   <script src="pong.js"></script>
 </body>
 </html>
